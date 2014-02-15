@@ -10,7 +10,7 @@
  * @package WordPress
  * @subpackage YetSirButton
  */
- define('YSB_PLUGIN_NAME', 'YetSirButton');
+ define('YSB_PLUGIN_NAME', 'YetSirButton-master');
 
 
 
