@@ -5,7 +5,7 @@ jQuery(document).ready( function($){
 		var anchorNode = this;
 		ysb.getCount().done( function(json){
 			var url = json.id;
-			var count = json.shares;
+			var count = json.shares ? json.shares : 0;
 			var sirText = "やっとさー！(" + count + ")";
 			var sirTag = ysb.composeShareTag(url, "", sirText);
 			$(anchorNode).append(sirTag);
