@@ -6,9 +6,10 @@ jQuery(document).ready( function($){
 		ysb.getCount(this.attributes.url.textContent).done( function(json){
 			var url = json.id;
 			var likeCount = json.shares ? json.shares : 0;
-			var sirText = "やっとさー！(" + likeCount + ")";
+			var sirText = "やっとさー！";
 			var sirTag = ysb.composeShareTag(url, "", sirText);
-			$(anchorNode).append(sirTag);
+			var sirComment = likeCount + "人が「やっとさー！」と言うとります。「やっとさー！」をクリックして、友達にシェアしましょう。";
+			$(anchorNode).append(sirTag).append(sirComment);
 			
 			//var yetText = "やっとやっと！(" + likeCount + ")";
 			//var yetTag = ysb.composeLikeTag(url, "", yetText);
