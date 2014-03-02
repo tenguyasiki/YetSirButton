@@ -3,14 +3,14 @@ jQuery(document).ready( function($){
 	var ysb = YetSirButton;
 	$('.ysbAnchor').each( function(i){
 		var anchorNode = this;
-		ysb.getCount().done( function(json){
+		ysb.getCount(this.attributes.url.textContent).done( function(json){
 			var url = json.id;
-			var count = json.shares ? json.shares : 0;
-			var sirText = "やっとさー！(" + count + ")";
+			var likeCount = json.shares ? json.shares : 0;
+			var sirText = "やっとさー！(" + likeCount + ")";
 			var sirTag = ysb.composeShareTag(url, "", sirText);
 			$(anchorNode).append(sirTag);
 			
-			//var yetText = "やっとやっと！(" + count + ")";
+			//var yetText = "やっとやっと！(" + likeCount + ")";
 			//var yetTag = ysb.composeLikeTag(url, "", yetText);
 			//$(anchorNode).append(yetTag);
 		})
@@ -52,9 +52,6 @@ YetSirButton.getCount = function(url){
 	
 	// graph api
 	// http://graph.facebook.com/?id=http://hello-apis.blogspot.jp/2013/02/facebookapi.html
-	//var url = "http://creators-db.net/entry/";
-	var url = location.href;
-	
 	var api_url = "http://graph.facebook.com/?id=" + url;
 	$.ajax({
 		url : api_url,
